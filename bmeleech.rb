@@ -26,6 +26,6 @@ styles.each do |h|
   hrefs.each do |href|
     puts "downloading #{href}"
     bme = agent.get href
-    File.open(base + bme.filename.gsub(/^"|"$/, ""), "w") { |f| f.write bme.body }
+    File.open(File.join(base, bme.filename.gsub(/^"|"$/, "")), "w") { |f| f.write bme.body }
   end
 end
